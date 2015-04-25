@@ -1,0 +1,9 @@
+
+<section class="{{swbClass}}" ng-repeat="schedule in schedules">
+  <h3>{{schedule.title}}  - <span>{{schedule.date}}</span></h3>
+  <ul  class="list-unstyled">
+    <li ng-repeat="event in schedule.events">
+      {{event.title}} - {{event.time}}
+    </li>
+  </ul>
+</section>

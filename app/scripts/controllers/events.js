@@ -7,8 +7,8 @@
  * # MainCtrl
  * Controller of the templateApp
  */
-angular.module('templateApp')
-  .controller('MainCtrl', ['$scope', 'DataFactory', function ($scope, DataFactory) {
 
+angular.module('templateApp')
+  .controller('EventsCtrl', ['$scope', 'DataFactory', function ($scope, DataFactory) {
 
   }]);
