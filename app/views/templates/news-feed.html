@@ -1,9 +1,12 @@
 
-<section class="{{swbClass}}" ng-repeat="schedule in schedules">
-  <h3>{{schedule.title}}  - <span>{{schedule.date}}</span></h3>
-  <ul  class="list-unstyled">
-    <li ng-repeat="event in schedule.events">
-      {{event.title}} - {{event.time}}
+<section class="{{swbClass}}">
+  <h3>News and Updates</h3>
+  <ul class="list-unstyled">
+    <li ng-repeat="update in updates | limitTo: swbLimit">
+      <article>
+        <h5>{{update.title}}</h5>
+        <p>{{update.description}}</p>
+      </article>
     </li>
   </ul>
 </section>

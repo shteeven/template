@@ -11,17 +11,9 @@
 </div>
 
 <div class="row text-center">
-  <div class="col-md-4" ng-controller="UpdatesCtrl">
-    <h3>News and Updates</h3>
-    <ul class="list-unstyled">
-      <li ng-repeat="update in updates">
-        <article>
-          <h4>{{update.title}}</h4>
-          <p>{{update.body}}</p>
-        </article>
-      </li>
-    </ul>
-  </div>
+  <swb-news-feed swb-class="col-md-4" swb-limit="4">
+
+  </swb-news-feed>
   <div class="col-md-4">
     <h3>Event Performances</h3>
     <p>
@@ -40,7 +32,7 @@
 </div>
 
 <div class="row">
-  <swb-news-feed swb-class="col-md-4 text-center"></swb-news-feed>
+  <swb-schedule swb-class="col-md-4 text-center"></swb-schedule>
 </div>
 
 <div class="row">

@@ -13,16 +13,17 @@ var app = angular.module('templateApp');
 app.directive('swbNewsFeed', ['DataFactory', function (DataFactory) {
 
     return {
-      scope:{ swbClass: '@' },
+      scope:{ swbClass: '@', swbLimit: '@' },
       restrict: 'EA',
       templateUrl: 'views/templates/news-feed.html',
       link: function($scope, attrs, elem) {
 
-        $scope.schedules = [{title: 'loading'}];
+        $scope.updates = [{title:'loading'}];
 
-        DataFactory.getData('data/schedules.json').success(function(data) {
-          $scope.schedules = data;
+        DataFactory.getData('data/updates.json').success(function(data) {
+          $scope.updates = data;
         }).error(function(err) {console.log(err)});
+
       }
     };
   }]);
