@@ -1,0 +1,36 @@
+<!-- Carousel ================================================== -->
+<ul rn-carousel rn-carousel-index="item"  rn-carousel-buffered class="carousel">
+
+  <!-- Indicators: Break rules in order to use bootstrap components -->
+  <ol class="carousel-indicators">
+    <li ng-repeat="slide in images" ng-click="itemSelect($index)" ng-class="{active: item === $index}"></li>
+  </ol>
+
+  <!-- Items -->
+  <li ng-repeat="slide in images track by slide.id">
+    <div class="bgimage">
+      <img class="img-responsive" ng-src="{{slide.img}}" alt="First slide">
+      <div class="container">
+        <div class="carousel-caption">
+          <h1>{{slide.title}}</h1>
+          <p>{{slide.body}}</p>
+          <p><a class="btn btn-lg btn-primary" ng-href="{{slide.btnAction}}" role="button">{{slide.btnText}}</a></p>
+        </div>
+      </div>
+    </div>
+  </li>
+
+  <!-- Navigation: Break rules in order to use bootstrap components -->
+  <a class="left carousel-control" href role="button" ng-click="prev()">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href role="button" ng-click="next()">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</ul>
+
+<!-- /.carousel -->
+
+

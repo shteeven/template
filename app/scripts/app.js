@@ -17,7 +17,8 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'templateApp.DataFactory'
+    'templateApp.DataFactory',
+    'angular-carousel'
   ])
   .config(function ($routeProvider) {
     $routeProvider
