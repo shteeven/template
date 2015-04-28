@@ -5,7 +5,7 @@
     "btnText": "bite me",
     "btnAction": "/signup",
     "img":"images/yeoman1.jpg",
-    "id": 0
+    "id": 1
   },
   {
     "title": "Example headline.2",
@@ -13,7 +13,7 @@
     "btnText": "Sign up tomorrow",
     "btnAction": "/signup",
     "img":"images/yeoman1.jpg",
-    "id": 1
+    "id": 2
   },
   {
     "title": "Example headline.3",
@@ -21,7 +21,7 @@
     "btnText": "Sign up today",
     "btnAction": "/signup",
     "img":"images/yeoman.png",
-    "id": 2
+    "id": 3
   },
   {
     "title": "Example headline.4",
@@ -29,7 +29,7 @@
     "btnText": "Who am I?",
     "btnAction": "/signup",
     "img":"images/yeoman.png",
-    "id": 3
+    "id": 4
   },
   {
     "title": "Example headline.5",
@@ -37,6 +37,6 @@
     "btnText": "What what!?!",
     "btnAction": "/signup",
     "img":"images/yeoman.png",
-    "id": 4
+    "id": 5
   }
 ]
