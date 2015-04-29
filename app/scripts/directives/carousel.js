@@ -11,9 +11,8 @@
 var app = angular.module('templateApp');
 
 app.directive('swbCarousel', ['$interval', 'DataFactory', function ($interval, DataFactory) {
-
   return {
-    scope:{ swbClass: '@', swbUrl: '@' },
+    scope:{ swbUrl: '@' },
     restrict: 'EA',
     templateUrl: 'views/templates/carousel.html',
     link: function($scope, attrs, elem) {

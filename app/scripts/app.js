@@ -8,8 +8,7 @@
  *
  * Main module of the application.
  */
-angular
-  .module('templateApp', [
+angular.module('templateApp', [
     'ngAnimate',
     'ngCookies',
     'ngMessages',
@@ -18,7 +17,8 @@ angular
     'ngSanitize',
     'ngTouch',
     'templateApp.DataFactory',
-    'angular-carousel'
+    'angular-carousel',
+    'uiGmapgoogle-maps'
   ])
   .config(function ($routeProvider) {
     $routeProvider
