@@ -17,8 +17,7 @@ angular.module('templateApp', [
     'ngSanitize',
     'ngTouch',
     'templateApp.DataFactory',
-    'angular-carousel',
-    'uiGmapgoogle-maps'
+    'angular-carousel'
   ])
   .config(function ($routeProvider) {
     $routeProvider

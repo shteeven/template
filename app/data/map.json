@@ -1,0 +1,25 @@
+{
+  "sites" : [
+    {
+      "lat" : 39.58108,
+      "lng" : -105.63535,
+      "icon" : "red_MarkerA.png",
+      "title" : "Mount Evans",
+      "zIndex" : 4,
+      "html" : "This is Mount Evans."
+    },
+    {
+      "lat" : 40.315939,
+      "lng" : -105.440630,
+      "icon" : "red_MarkerB.png",
+      "title" : "Irving Homestead",
+      "zIndex" : 4,
+      "html" : "This is the Irving Homestead"
+    }
+  ],
+  "map" : {
+    "lat" : 39.58108,
+    "lng" : -105.63535,
+    "zoom" : 8
+  }
+}
