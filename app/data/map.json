@@ -20,6 +20,7 @@
   "map" : {
     "lat" : 39.58108,
     "lng" : -105.63535,
-    "zoom" : 8
+    "zoom" : 8,
+    "scrollwheel" : "false"
   }
 }

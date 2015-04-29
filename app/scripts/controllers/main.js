@@ -17,4 +17,9 @@ app.controller('MainCtrl', ['$scope', function ($scope) {
       place:{ placeId: 'ChIJ2UxGN-l1ejURJ5hu74ag7hg' }
   };
 
+  $scope.map1 = 36.4969316;
+  $scope.toggleNum = function() {
+    $scope.map1 = 50;
+  };
+
   }]);
