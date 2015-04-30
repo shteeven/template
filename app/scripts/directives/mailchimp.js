@@ -2,43 +2,94 @@
 
 /**
  * @ngdoc function
- * @name templateApp.controller:MainCtrl
+ * @name templateApp.directive:swbMailchimp
  * @description
  * # MainCtrl
- * Controller of the templateApp
+ * Directive of Mailchimp signup
  */
 
 var app = angular.module('templateApp');
 
-app.directive('swbCarousel', ['$interval', 'DataFactory', function ($interval, DataFactory) {
+app.directive('swbMailchimp', ['$log', '$resource', function ($log, $resource) {
   return {
-    scope:{ swbUrl: '@' },
+    scope: { swbData: '='},
     restrict: 'EA',
-    templateUrl: 'views/templates/carousel.html',
-    link: function($scope, attrs, elem) {
+    templateUrl: 'views/templates/mailchimp.html',
+    link: function ($scope, attrs, elem) {
+      // Handle clicks on the form submission.
 
-      // initialize active item
-      $scope.itemSelect = function(item) {$scope.item = item};
-      $scope.next = function() {
-        if ($scope.item === $scope.indexes) {
-          $scope.item = 0;
-        } else {
-          $scope.item = $scope.item+1;
-        }
-      };
-      $scope.prev = function() {
-        if ($scope.item === 0) {
-          $scope.item = $scope.indexes;
-        } else {
-          $scope.item = $scope.item-1;
-        }
-      };
+      $scope.log = function(m){ console.log(m) };
+      $scope.swbData = {
+        username : 'Koreaburn',
+        dc : 'us10',
+        u : '157485ecc5b1202668ec9ed40',
+        id : '3cc1028527'
+        };
 
-      DataFactory.getData($scope.swbUrl).success(function(data) {
-        $scope.images = data;
-        $scope.indexes = data.length-1;
-        $scope.item = 0;
-      }).error(function(err) {console.log(err)});
+
+      $scope.addSubscription = function (mailchimp) {
+        var actions,
+          MailChimpSubscription,
+          params = {},
+          url;
+
+        // Create a resource for interacting with the MailChimp API
+        url = '//' + mailchimp.username + '.' + mailchimp.dc +
+        '.list-manage.com/subscribe/post-json';
+
+        var fields = Object.keys(mailchimp);
+
+        for (var i = 0; i < fields.length; i++) {
+          console.log(fields);
+          console.log(fields[i]);
+          params[fields[i]] = mailchimp[fields[i]];
+        }
+
+        params.c = 'JSON_CALLBACK';
+
+        actions = {
+          'save': {
+            method: 'jsonp'
+          }
+        };
+        MailChimpSubscription = $resource(url, params, actions);
+
+        // Send subscriber data to MailChimp
+        MailChimpSubscription.save(
+          // Successfully sent data to MailChimp.
+          function (response) {
+            // Define message containers.
+            mailchimp.errorMessage = '';
+            mailchimp.successMessage = '';
+
+            // Store the result from MailChimp
+            mailchimp.result = response.result;
+
+            // Mailchimp returned an error.
+            if (response.result === 'error') {
+              if (response.msg) {
+                // Remove error numbers, if any.
+                var errorMessageParts = response.msg.split(' - ');
+                if (errorMessageParts.length > 1)
+                  errorMessageParts.shift(); // Remove the error number
+                mailchimp.errorMessage = errorMessageParts.join(' ');
+              } else {
+                mailchimp.errorMessage = 'Sorry! An unknown error occured.';
+              }
+            }
+            // MailChimp returns a success.
+            else if (response.result === 'success') {
+              mailchimp.successMessage = response.msg;
+            }
+          },
+
+          // Error sending data to MailChimp
+          function (error) {
+            $log.error('MailChimp Error: %o', error);
+          }
+        );
+
+      };
     }
-  };
+  }
 }]);

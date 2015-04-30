@@ -1,0 +1,22 @@
+
+<form name="MailchimpSubscriptionForm">
+  <div ng-hide="swbData.result === 'success'">
+    <input type="text" name="fname" ng-model="swbData.FNAME" placeholder="First name">
+    <input type="text" name="lname" ng-model="swbData.LNAME" placeholder="Last name">
+    <input type="email" name="email" ng-model="swbData.EMAIL" placeholder="Email address" required>
+
+    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+    <div style="position: absolute; left: -5000px;"><input type="text" name="b_157485ecc5b1202668ec9ed40_3cc1028527" tabindex="-1" value=""></div>
+    <div class="clear"><input ng-disabled="MailchimpSubscriptionForm.$invalid" ng-click="addSubscription(swbData)" type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+  </div>
+
+  <!-- Show error message if MailChimp unsuccessfully added the email to the list. -->
+  <div ng-show="swbData.result === 'error'" ng-cloak>
+    <span ng-bind-html="swbData.errorMessage"></span>
+  </div>
+
+  <!-- Show success message if MailChimp returned successfully. -->
+  <div ng-show="swbData.result === 'success'" ng-cloak>
+    <span ng-bind-html="swbData.successMessage"></span>
+  </div>
+</form>
