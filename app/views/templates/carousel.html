@@ -8,9 +8,9 @@
 
   <!-- Items -->
   <li ng-repeat="slide in images track by slide.id">
-    <div class="bgimage">
-      <img class="img-responsive" ng-src="{{slide.img}}" alt="First slide">
-      <div class="container">
+    <div class="bgImage" ng-style="{'background-image': 'url(' + slide.img + ')'}">
+      <!--<img class="img-responsive" ng-src="{{slide.img}}" alt="First slide">-->
+      <div class="container" >
         <div class="carousel-caption">
           <h1>{{slide.title}}</h1>
           <p>{{slide.body}}</p>
