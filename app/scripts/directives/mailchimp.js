@@ -10,9 +10,9 @@
 
 var app = angular.module('templateApp');
 
-app.directive('swbMailchimp', ['$log', '$resource', function ($log, $resource) {
+app.directive('swbMailchimp', ['$resource', function ($resource) {
   return {
-    scope: { swbData: '='},
+    scope: { swbData: '=' },
     restrict: 'EA',
     templateUrl: 'views/templates/mailchimp.html',
     link: function ($scope, attrs, elem) {

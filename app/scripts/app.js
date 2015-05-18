@@ -17,13 +17,18 @@ angular.module('templateApp', [
     'ngSanitize',
     'ngTouch',
     'templateApp.DataFactory',
-    'angular-carousel'
+    'angular-carousel',
+    'firebase'
   ])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
+      })
+      .when('/tickets', {
+        templateUrl: 'views/tickets.html',
+        controller: 'TicketCtrl'
       })
       .otherwise({
         redirectTo: '/'
