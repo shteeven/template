@@ -28,7 +28,7 @@ angular.module('templateApp', [
       })
       .when('/tickets', {
         templateUrl: 'views/tickets.html',
-        controller: 'TicketCtrl'
+        controller: 'TicketsCtrl'
       })
       .otherwise({
         redirectTo: '/'
